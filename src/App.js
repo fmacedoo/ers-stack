@@ -5,11 +5,11 @@ import sendAsync from './message-control/renderer';
 import './App.css';
 
 function App() {
-    const [message, setMessage] = useState('');
-    const [responses, setResponses] = useState([]);
+    const [message, setMessage] = useState('SELECT * FROM repositories');
+    const [response, setResponse] = useState();
 
-    function send(data) {
-        sendAsync(data).then((result) => setResponses([...responses, result]));
+    function send(sql) {
+        sendAsync(sql).then((result) => setResponse(result));
     }
 
     return (
@@ -36,8 +36,8 @@ function App() {
                 <p>Main process responses:</p>
                 <br />
                 <pre>
-                    {(responses && responses.join('\n')) ||
-                        'the main process seems quiet!'}
+                    {(response && JSON.stringify(response, null, 2)) ||
+                        'No query results yet!'}
                 </pre>
             </article>
         </div>

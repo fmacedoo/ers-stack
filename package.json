@@ -10,7 +10,8 @@
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "sqlite3": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,7 +19,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "rebuild-sqlite3": "electron-rebuild -f -w sqlite3"
   },
   "main": "public/electron.js",
   "eslintConfig": {
@@ -40,6 +42,7 @@
     "concurrently": "^5.2.0",
     "electron": "^9.1.2",
     "electron-builder": "^22.8.0",
+    "electron-rebuild": "^1.11.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",
